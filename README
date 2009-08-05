@@ -1,0 +1,8 @@
+For run dev server:
+
+cp example_settings.py settings.py
+python manage.py syncdb
+python manage.py runserver
+
+admin login:	  admin
+pass: 		  111	
