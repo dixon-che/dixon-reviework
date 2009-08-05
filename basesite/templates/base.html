@@ -1,0 +1,43 @@
+<html>
+  <head>
+    <title>Test work</title>
+  </head>
+  <body>
+    <div>
+{% block main_content %}
+      {% for person in persons %}
+      <table>
+        <tr>
+	  <td>Name</td>
+	  <td>{{ person.name }}</td>
+	</tr>
+        <tr>
+	  <td>Surname</td>
+	  <td>{{ person.surname }}</td>
+	</tr>
+        <tr>
+	  <td>Birthday</td>
+	  <td>{{ person.date_of_birthday }}</td>
+	</tr>
+        <tr>
+	  <td>E-mail</td>
+	  <td>{{ person.email }}</td>
+	</tr>
+        <tr>
+	  <td>Phone number</td>
+	  <td>{{ person.cell_phone }}</td>
+	</tr>
+        <tr>
+	  <td>Address</td>
+	  <td>{{ person.address }}</td>
+	</tr>
+        <tr>
+	  <td>CV</td>
+	  <td>{{ person.curriculum_vita }}</td>
+	</tr>
+      </table>
+    {% endfor %}
+{% endblock %}
+    </div>
+  </body>
+</html>
