@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block main_content %}
+<form method="post" id="form">
+  <table>
+  
+    {{ form }}
+    
+    <tr>
+      <td colspan='2'><input type="submit" name="submit" value="Save" /></td>
+    </tr>
+  </table>  
+</form>
+{% endblock %}
+
+{% block bottom  %}{% endblock %}

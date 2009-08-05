@@ -35,10 +35,14 @@
 	  <td>CV</td>
 	  <td>{{ person.curriculum_vita }}</td>
 	</tr>
+	<tr>
+	  <td colspan='2'><a href="{% url person-edit person.id %}">Edit</a></td>
+	</tr>
       </table>
     {% endfor %}
 {% endblock %}
     </div>
+{% block bottom  %}
     <div>
       <h4>Django settings:</h4>
       <ul>
@@ -47,6 +51,6 @@
       </ul>
       
     </div>
-
+{% endblock %}
   </body>
 </html>
