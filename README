@@ -1,5 +1,10 @@
+
+Usualy I use for each project different instance of django source.
 For run dev server:
 
+svn co http://code.djangoproject.com/svn/django/trunk/django django
+
+cd basesite
 cp example_settings.py settings.py
 python manage.py syncdb
 python manage.py runserver

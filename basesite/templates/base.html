@@ -39,5 +39,14 @@
     {% endfor %}
 {% endblock %}
     </div>
+    <div>
+      <h4>Django settings:</h4>
+      <ul>
+	<li>LANGUAGE_CODE = {{ SETTINGS.LANGUAGE_CODE }}</li>
+	<li>TIME_ZONE = {{ SETTINGS.TIME_ZONE }}</li>
+      </ul>
+      
+    </div>
+
   </body>
 </html>

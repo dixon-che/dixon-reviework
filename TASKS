@@ -12,10 +12,12 @@ estimate: 1h
 
    * middleware Сделать middleware который сохраняет все запросы в базу
 estimate: 1h
+1h
 
    * template context сделать template-context-processor который
 добавляет django.settings в контекст
 estimate: 1h
+15m
 
    * forms - создать страницу с формой где можно редактировать данные
 которые на первой странице
