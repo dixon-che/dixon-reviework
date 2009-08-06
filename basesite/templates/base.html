@@ -1,6 +1,8 @@
 <html>
   <head>
     <title>Test work</title>
+{% block head %}
+{% endblock %}
   </head>
   <body>
     <div>
@@ -48,6 +50,7 @@
       <ul>
 	<li>LANGUAGE_CODE = {{ SETTINGS.LANGUAGE_CODE }}</li>
 	<li>TIME_ZONE = {{ SETTINGS.TIME_ZONE }}</li>
+	<li>SITE_ROOT = {{ SETTINGS.SITE_ROOT }}</li>
       </ul>
       
     </div>

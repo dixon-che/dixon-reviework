@@ -1,4 +1,12 @@
 {% extends "base.html" %}
+{% load admin_modify adminmedia %}
+{% block head %}
+
+{{ form.media }}
+
+{% endblock %}
+
+
 
 {% block main_content %}
 <form method="post" id="form">
@@ -11,6 +19,7 @@
     </tr>
   </table>  
 </form>
+
 {% endblock %}
 
 {% block bottom  %}{% endblock %}

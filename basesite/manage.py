@@ -2,7 +2,8 @@
 import sys
 from os import path
 
-SITE_ROOT_DIR = path.split( path.dirname( path.abspath(sys.argv[0]) ) )[0]
+SITE_ROOT_DIR = path.split( path.dirname( path.abspath(sys.argv[0]) ) )[0] + '/'
+print SITE_ROOT_DIR
 sys.path.insert(0, SITE_ROOT_DIR)
 
 from django.core.management import execute_manager
