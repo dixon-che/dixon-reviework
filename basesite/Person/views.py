@@ -24,8 +24,10 @@ class TextInputWithMedia(TextInput):
 class PersonEditForm(ModelForm):
     name = CharField(widget=TextInputWithMedia)
     date_of_birthday = DateField(widget=AdminDateWidget())
+
     class Meta:
         model = Person
+        fields = [f.name for f in Person._meta.fields[1:].__reversed__()]
         
     class Media:
         # I used this hack with TextInputWithMedia, cose I need core.js and jsi18n before AdminDateWidget-media
