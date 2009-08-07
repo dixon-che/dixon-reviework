@@ -1,4 +1,4 @@
-<html>
+{% load edit_url %}<html>
   <head>
     <title>Test work</title>
 {% block head %}
@@ -38,7 +38,7 @@
 	  <td>{{ person.curriculum_vita }}</td>
 	</tr>
 	<tr>
-	  <td colspan='2'><a href="{% url person-edit person.id %}">Edit</a></td>
+	  <td colspan='2'><a href="{% url person-edit person.id %}">Edit</a> or <a href="{% admin_edit_url person %}">Edit on admin page</a></td>
 	</tr>
       </table>
     {% endfor %}
@@ -54,6 +54,8 @@
       </ul>
       
     </div>
+
+Hello, {{ user }}! <a href="{% admin_edit_url user %}">Edit your profile</a>
 {% endblock %}
   </body>
 </html>
