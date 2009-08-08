@@ -94,5 +94,5 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'basesite.Person',
     'basesite.Request_log',
-
+    'basesite.db_log',
 )
