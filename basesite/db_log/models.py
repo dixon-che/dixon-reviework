@@ -3,6 +3,7 @@ from django.contrib.contenttypes.models import ContentType
 from django.db.models.signals import post_save, post_delete
 from basesite.Request_log.models import Request_log
 from django.contrib.auth.models import Message
+from django.contrib.sessions.models import Session
 
 EVENT_CHOICES = (
     ('create','create'),
@@ -22,7 +23,7 @@ EVENT_CHOICES_DICT = {None:'delete',
                       False:'edit'}
 
 def event_callback(sender, instance, **kwargs):
-    if sender not in (ModelLog, Request_log, Message): #no loged modlels
+    if sender not in (ModelLog, Request_log, Message, Session): #no loged modlels
         content_type = ContentType.objects.get_for_model(sender)
         ModelLog.objects.create(object_log=content_type,
                                 object_id=instance.id,
