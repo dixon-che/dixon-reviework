@@ -1,1 +1,1 @@
-# Create your views here.
+'''Views for module db_log'''

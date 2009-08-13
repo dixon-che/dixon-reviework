@@ -1,7 +1,7 @@
-# Django settings for basesite project.
+''' Django settings for basesite project.'''
 
 import os
-SITE_ROOT=os.path.normpath(os.path.join(os.path.dirname(__file__),''))+'/'
+SITE_ROOT = os.path.normpath(os.path.join(os.path.dirname(__file__), '')) + '/'
 
 DEBUG = False
 TEMPLATE_DEBUG = DEBUG
@@ -12,22 +12,15 @@ ADMINS = (
 
 MANAGERS = ADMINS
 
-DATABASE_ENGINE = 'sqlite3'           # 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
-DATABASE_NAME = SITE_ROOT + 'db'             # Or path to database file if using sqlite3.
-DATABASE_USER = ''             # Not used with sqlite3.
-DATABASE_PASSWORD = ''         # Not used with sqlite3.
-DATABASE_HOST = ''             # Set to empty string for localhost. Not used with sqlite3.
-DATABASE_PORT = ''             # Set to empty string for default. Not used with sqlite3.
+DATABASE_ENGINE = 'sqlite3'
+DATABASE_NAME = SITE_ROOT + 'db'
+DATABASE_USER = ''
+DATABASE_PASSWORD = ''
+DATABASE_HOST = ''
+DATABASE_PORT = ''
 
-# Local time zone for this installation. Choices can be found here:
-# http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
-# although not all choices may be available on all operating systems.
-# If running in a Windows environment this must be set to the same as your
-# system time zone.
 TIME_ZONE = 'Ukraine/Kiev'
 
-# Language code for this installation. All choices can be found here:
-# http://www.i18nguy.com/unicode/language-identifiers.html
 LANGUAGE_CODE = 'en-us'
 
 SITE_ID = 1
@@ -69,21 +62,18 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.common.CommonMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'basesite.middleware.Request_log_middleware',
+    'basesite.middleware.RequestLogMiddleware',
 )
 
 ROOT_URLCONF = 'basesite.urls'
 
-LOGIN_URL  = '/login/'
+LOGIN_URL = '/login/'
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_URL = '/logout/'
 
 
 TEMPLATE_DIRS = (
     SITE_ROOT + 'templates/',
-    # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
-    # Always use forward slashes, even on Windows.
-    # Don't forget to use absolute paths, not relative paths.
 )
 
 INSTALLED_APPS = (

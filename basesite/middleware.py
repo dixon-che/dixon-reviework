@@ -1,11 +1,18 @@
-from basesite.Request_log.models import Request_log
+'''Custom middlewares'''
 
-class Request_log_middleware(object):
+from basesite.Request_log.models import RequestLog
+
+
+class RequestLogMiddleware(object):
+    '''Middleware write log of requests '''
+
     def process_request(self, request):
+        '''create RequestLog instance for each request '''
+
         if request.user.is_anonymous():
             user = None
         else:
             user = request.user
-        request_log = Request_log.objects.create(request_url=request.path,
-                                                 ipaddress=request.META['REMOTE_ADDR'],
-                                                 user=user)
+        RequestLog.objects.create(request_url=request.path,
+                                  ipaddress=request.META['REMOTE_ADDR'],
+                                  user=user)

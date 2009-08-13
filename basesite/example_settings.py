@@ -1,3 +1,5 @@
+''' Custom project settings.'''
+
 from basesite.default_settings import *
 
 DEBUG = True

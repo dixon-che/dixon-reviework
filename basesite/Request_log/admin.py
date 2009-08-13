@@ -1,4 +1,6 @@
-from django.contrib import admin
-from basesite.Request_log.models import Request_log
+'''Here activate admin for RequestLog model'''
 
-admin.site.register(Request_log)
+from django.contrib import admin
+from basesite.Request_log.models import RequestLog
+
+admin.site.register(RequestLog)

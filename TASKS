@@ -60,7 +60,16 @@ Total estimate: 15h*1.4 = 21h
 + * під час виконання записувати час, який витрачено на кожну задачу (в
 той же файл)
  * кожна задача має включати в себе тести (стандартні django)
- * слідкувати за test coverage, pep8 та pylint score
++ * слідкувати за test coverage, pep8 та pylint score
+
+coverage -  88% (without django sources)
+
+pylint return:
+Your code has been rated at 4.39/10
+All other errors and warnings relate with django specificity.
+
+
+
 
 Бонуси:
  * тести з використанням

@@ -1,41 +1,34 @@
-"""
-This file demonstrates two different styles of tests (one doctest and one
-unittest). These will both pass when you run "manage.py test".
+'''Tests for Person module'''
 
-Replace these with more appropriate tests for your application.
-"""
+from datetime import datetime
 
 from django.test import TestCase
-from basesite.Person.models import Person
 from django.contrib.auth.models import User
-import datetime
-# class LentaTest(TestCase):
-#     def test_index(self):
-#         response = self.client.get('/lenta/')
-#         self.failUnlessEqual(response.status_code, 200)
+#from django.template import RequestContext
+
+from basesite.Person.models import Person
 
 
-# Unit tests for every new Django model looks like:
-# create/edit/delete object of the model
-# call unicode() and get_absolute_url() methods
-class SimpleTest(TestCase):
-    user = None
-    def test_basic_configure(self):
+class PersonTest(TestCase):
+    '''test manipulations with Person model and views '''
+
+    def setUp(self):
         """
-        Check loaddata from fixture
+        On the way check loaddata from fixture
         """
         presons = Person.objects.all()
         self.failUnlessEqual(presons.count(), 1)
-        preson = presons[0]
+        self.preson = presons[0]
         users = User.objects.all()
         self.failUnlessEqual(users.count(), 1)
-        user = users[0]
-        self.failUnlessEqual(user.username, 'admin')
+        self.user = users[0]
+        self.failUnlessEqual(self.user.username, 'admin')
 
-    def test_operate(self):
+    def testCED(self):
+        '''create/edit/delete tests'''
         person = Person.objects.create(name='test_person_name',
                                        surname='test_person_surname',
-                                       date_of_birthday=datetime.datetime.now(),
+                                       date_of_birthday=datetime.now(),
                                        email='noreply@test.com',
                                        cell_phone='1234567890',
                                        address='some address',
@@ -51,7 +44,28 @@ class SimpleTest(TestCase):
         person.delete()
         self.failUnlessEqual(Person.objects.all().count(), 1)
 
-    def test_index(self):
+    def testLoadIndex(self):
+        '''Test main view'''
         response = self.client.get('/')
         self.failUnlessEqual(response.status_code, 302)
+        response = self.client.get('/', follow=True)
+        self.failUnlessEqual(response.redirect_chain[0][0],
+                             'http://testserver/login/?next=/')
+        self.failIfEqual(response.content.find('Test work'), -1)
 
+        self.failUnlessEqual(self.client.login(username='admin',
+                                               password='111'), True)
+
+        response = self.client.get('/')
+
+        self.failUnlessEqual(response.status_code, 200)
+
+    def testEditPage(self):
+        '''Test Person edit page'''
+
+        #print ''
+        response = self.client.get('/')
+        #print dir(response)
+        #print response.content
+        #print RequestContext()
+        #print dir(self)

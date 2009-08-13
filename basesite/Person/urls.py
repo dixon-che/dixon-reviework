@@ -1,4 +1,6 @@
-from django.conf.urls.defaults import patterns, url, include
+'''urls config for Person views'''
+
+from django.conf.urls.defaults import patterns, url
 
 
 urlpatterns = patterns('basesite.Person.views',

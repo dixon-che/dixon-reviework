@@ -3,4 +3,5 @@
 *.pyo
 .ropeproject/
 basesite/db
+basesite/test_runner.py
 django

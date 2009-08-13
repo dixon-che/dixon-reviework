@@ -1,8 +1,9 @@
 #!/usr/bin/env python
+'''customed manage file '''
 import sys
 from os import path
 
-SITE_ROOT_DIR = path.split( path.dirname( path.abspath(sys.argv[0]) ) )[0] + '/'
+SITE_ROOT_DIR = path.split(path.dirname(path.abspath(sys.argv[0])))[0] + '/'
 sys.path.insert(0, SITE_ROOT_DIR)
 
 from django.core.management import execute_manager
