@@ -44,8 +44,9 @@ class PersonTest(TestCase):
         self.user = users[0]
         self.failUnlessEqual(self.user.username, 'admin')
 
-    def testCED(self):
-        '''create/edit/delete tests'''
+    def testCRUD(self):
+        '''create/edit/delete tests
+        create, retrieve, update, and delete'''
         person = Person()
         for field_key in person_test_values_dict.keys():
             setattr(person, field_key, person_test_values_dict[field_key])
